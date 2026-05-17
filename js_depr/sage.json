@@ -1,0 +1,60 @@
+{
+  "context": {
+    "layer0": "library",
+    "layer1": [
+      {
+        "name": "typescript",
+        "description": "typed javascript"
+      },
+      {
+        "name": "nodejs",
+        "description": "a javascript runtime"
+      }
+    ]
+  },
+  "mcp": {
+    "servers": [
+      {
+        "name": "sage",
+        "description": "Contract registry and trace debugger"
+      }
+    ]
+  },
+  "scan": {
+    "roots": [
+      "src"
+    ],
+    "exclude": [
+      ".venv",
+      "venv",
+      ".env",
+      "__pycache__",
+      ".git",
+      "node_modules",
+      "dist",
+      "build",
+      "*.egg-info",
+      ".mypy_cache",
+      ".pytest_cache",
+      ".ruff_cache",
+      ".sage"
+    ]
+  },
+  "registry": {
+    "path": ".sage/logType.json"
+  },
+  "store": {
+    "backend": "both"
+  },
+  "cold": {
+    "ttl_hours": 24
+  },
+  "swarm": {
+    "worker_model": "openai:google/gemma-4-e4b",
+    "worker_base_url": "http://localhost:1234/v1",
+    "worker_api_key": "lm-studio",
+    "batch_size": 2,
+    "recursion_limit": 40,
+    "prompt_layers": []
+  }
+}

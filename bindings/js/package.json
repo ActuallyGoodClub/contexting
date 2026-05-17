@@ -1,0 +1,14 @@
+{
+  "name": "contexting-wasm",
+  "version": "0.1.0",
+  "description": "WASM bindings for the contexting prompt assembly library",
+  "scripts": {
+    "build": "wasm-pack build --target bundler --out-dir pkg",
+    "build:node": "wasm-pack build --target nodejs --out-dir pkg-node",
+    "build:web": "wasm-pack build --target web --out-dir pkg-web",
+    "build:dev": "wasm-pack build --dev --target nodejs --out-dir pkg-node"
+  },
+  "devDependencies": {
+    "wasm-pack": "^0.13"
+  }
+}

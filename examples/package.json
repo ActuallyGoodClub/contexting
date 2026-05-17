@@ -1,0 +1,8 @@
+{
+  "name": "contexting-examples",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "contexting": "file:../bindings/js/pkg-node"
+  }
+}
