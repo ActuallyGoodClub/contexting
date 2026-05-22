@@ -14,6 +14,12 @@ Template-based prompt assembly. Fill `{{slot}}` placeholders in a base prompt us
 
 ## Python
 
+### Installation
+
+```bash
+pip install contexting
+```
+
 ### API
 
 ```python
@@ -103,3 +109,40 @@ prompt = assemble(base_prompt, [lang_style], {'lang': 'es', 'topic': 'cooking'})
 print(prompt)
 # Respond only in Spanish. Be warm and conversational. Help the user with their question about cooking.
 ```
+
+---
+
+## JavaScript / WASM
+
+### Installation
+
+Download the `.tgz` from the [latest release](https://github.com/borkds/contexting/releases/latest) and install it:
+
+```bash
+npm install https://github.com/borkds/contexting/releases/download/v1.0.0/contexting-js-1.0.0.tgz
+```
+
+Replace the version in the URL with the release you want.
+
+### API
+
+```js
+import { assemble, create_injector } from 'contexting-js';
+```
+
+#### `create_injector(slot, fn)`
+
+| param | type | description |
+|---|---|---|
+| `slot` | `string` | name matching `{{slot}}` in the template |
+| `fn` | `(ctx: object) => string` | receives the full context, returns the string to inject |
+
+#### `assemble(base_prompt, rules, context)`
+
+| param | type | description |
+|---|---|---|
+| `base_prompt` | `string` | template string with `{{slot}}` placeholders |
+| `rules` | `Injector[]` | ordered injectors applied before base fill |
+| `context` | `object` | passed to every injector fn; also fills remaining slots |
+
+Returns the assembled `string`.
